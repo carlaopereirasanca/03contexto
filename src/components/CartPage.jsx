@@ -1,7 +1,13 @@
 import SingleProduct from "./SingleProduct";
+import { useContext } from 'react';
+import { CartContext } from './CartContext';
 import './styles.css';
 
-const CartPage = ( {carrinho, setCarrinho} ) => {
+const CartPage = () => {
+
+    // Acessando o contexto, para recuperar o estado:
+    const { carrinho, setCarrinho } = useContext(CartContext);
+    // ... e só !!!
 
     // Calcula a quantidade e o valor total dos produtos
     // que estão no carrinho.
@@ -24,8 +30,6 @@ const CartPage = ( {carrinho, setCarrinho} ) => {
                         <SingleProduct
                             key={prod.id}
                             prod={prod}
-                            carrinho={carrinho}
-                            setCarrinho={setCarrinho}
                         />
                     );
                 } ) }
